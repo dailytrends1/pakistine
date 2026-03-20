@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Survey</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    text-align:center;
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    max-width:400px;
+    margin:auto;
+}
+
+h1{
+    font-size:22px;
+    color:#111;
+}
+
+p{
+    color:#555;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    background:#00c853;
+    color:white;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#00b248;
+}
+
+.progress{
+    height:8px;
+    background:#ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.progress-bar{
+    height:8px;
+    width:33%;
+    background:#00c853;
+    border-radius:10px;
+}
+
+.hidden{
+    display:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <div class="progress">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <!-- STEP 1 -->
+        <div id="step1">
+            <h1>Do you use a smartphone daily? 📱</h1>
+            <button onclick="nextStep(2)">Yes</button>
+            <button onclick="nextStep(2)">No</button>
+        </div>
+
+        <!-- STEP 2 -->
+        <div id="step2" class="hidden">
+            <h1>Do you want to earn extra income online? 💸</h1>
+            <button onclick="nextStep(3)">Yes</button>
+            <button onclick="nextStep(3)">No</button>
+        </div>
+
+        <!-- STEP 3 -->
+        <div id="step3" class="hidden">
+            <h1>Can you answer simple questions daily? ✅</h1>
+            <button onclick="finish()">Yes</button>
+            <button onclick="finish()">No</button>
+        </div>
+
+        <!-- FINAL -->
+        <div id="final" class="hidden">
+            <h1>🎉 Congratulations!</h1>
+            <p>You qualify to start earning.</p>
+            <button onclick="redirect()">Continue</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function nextStep(step){
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('step3').classList.add('hidden');
+
+    document.getElementById('step'+step).classList.remove('hidden');
+
+    let progress = document.getElementById('progress');
+    if(step == 2) progress.style.width = "66%";
+    if(step == 3) progress.style.width = "90%";
+}
+
+function finish(){
+    document.getElementById('step3').classList.add('hidden');
+    document.getElementById('final').classList.remove('hidden');
+    document.getElementById('progress').style.width = "100%";
+}
+
+function redirect(){
+    window.location.href = "YOUR_ZEYDOO_LINK_HERE";
+}
+</script>
+
+</body>
+</html>
