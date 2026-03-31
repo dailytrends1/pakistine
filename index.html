@@ -1,404 +1,109 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Survey</title>
+<title>Chat & Earn Ghana</title>
 
 <style>
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-    text-align:center;
-}
-
-.container{
-    padding:20px;
-}
-
-.card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    max-width:400px;
-    margin:auto;
-}
-
-h1{
-    font-size:20px;
-    color:#111;
-}
-
-p{
-    color:#555;
-}
-
-button{
-    width:100%;
-    padding:15px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    cursor:pointer;
-    background:#00c853;
-    color:white;
-    font-weight:bold;
-}
-
-button:hover{
-    background:#00b248;
-}
-
-.progress{
-    height:8px;
-    background:#ddd;
-    border-radius:10px;
-    margin-bottom:15px;
-}
-
-.progress-bar{
-    height:8px;
-    width:33%;
-    background:#00c853;
-    border-radius:10px;
-}
-
-.hidden{
-    display:none;
-}
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-    <div class="card">
-
-        <div class="progress">
-            <div class="progress-bar" id="progress"></div>
-        </div>
-
-        
-        <div id="step1">
-            <h1>Kya aap roz mobile phone use karte ho? 📱</h1>
-            <button onclick="nextStep(2)">Haan</button>
-            <button onclick="nextStep(2)">Nahi</button>
-        </div>
-
-        
-        <div id="step2" class="hidden">
-            <h1>Kya aap online extra paisa kamaana chahte ho? 💸</h1>
-            <button onclick="nextStep(3)">Haan</button>
-            <button onclick="nextStep(3)">Nahi</button>
-        </div>
-
-        
-        <div id="step3" class="hidden">
-            <h1>Kya aap simple sawalon ke jawab de sakte ho? ✅</h1>
-            <button onclick="finish()">Haan</button>
-            <button onclick="finish()">Nahi</button>
-        </div>
-
-        
-        <div id="final" class="hidden">
-            <h1>🎉 Mubarak ho!</h1>
-            <p>Aap earning start karne ke liye select ho gaye ho.</p>
-            <p>Limited spots available hain, jaldi start karein.</p>
-            <button onclick="redirect()">Continue</button>
-        </div>
-
-    </div>
-</div>
-
-<script>
-function nextStep(step){
-    document.getElementById('step1').classList.add('hidden');
-    document.getElementById('step2').classList.add('hidden');
-    document.getElementById('step3').classList.add('hidden');
-
-    document.getElementById('step'+step).classList.remove('hidden');
-
-    let progress = document.getElementById('progress');
-    if(step == 2) progress.style.width = "66%";
-    if(step == 3) progress.style.width = "90%";
-}
-
-function finish(){
-    document.getElementById('step3').classList.add('hidden');
-    document.getElementById('final').classList.remove('hidden');
-    document.getElementById('progress').style.width = "100%";
-}
-
-function redirect(){
-    window.location.href = "https://ln.run/personal";
-}
-</script>
-
-</body>
-</html> 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Access</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-background:url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVm78A3Hpiu5e41ZnEw64AoffQ-T0JhElBisR5Y3TvsFlq8CRy5UqSFbEdn1j7fzVsG2B7eAwBnrE9gYsUMDpfJOT54E3Z5bz9649aXB-BeXq3D-bMl62Djk5A0UKEd2XyTpuDggJw1ElNUy_kseSwx649HLEEfl1RsqwWNSZygP3Ywyt0USPAup9CWyjy/s990/download%20(28).jpeg") center/cover no-repeat;
-position:relative;
-padding:20px;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.35);
-backdrop-filter:blur(3px);
-}
-
-.container{
-position:relative;
-text-align:center;
-color:white;
-z-index:2;
-max-width:400px;
-width:100%;
-}
-
-h1{
-font-size:26px;
-margin-bottom:10px;
-}
-
-p{
-font-size:16px;
-margin-bottom:25px;
-opacity:0.9;
-}
-
-.buttons{
-display:flex;
-flex-direction:column;
-gap:12px;
-align-items:center;
-}
-
-button{
-padding:15px;
-font-size:16px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
-width:100%;
-max-width:250px;
-}
-
-.btn1{
-background:#ffffff;
-color:#000;
-}
-
-.btn2{
-background:#25D366;
-color:white;
-animation:pulse 2.5s infinite;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
-
-/* Mobile adjustment */
-
-@media(max-width:600px){
-
-h1{
-font-size:22px;
-}
-
-p{
-font-size:15px;
-}
-
-button{
-font-size:15px;
-padding:14px;
-}
-
-}
-
-</style>
-<link rel="me" href="https://www.blogger.com/profile/04209175009256562906" />
-<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
-<meta name='google-adsense-platform-domain' content='blogspot.com'/>
-</head>
-
-<body>
-
-<div class="overlay"></div>
-
-<div class="container">
-
-<h1>Parabéns! Está a apenas um passo de distância!</h1>
-<p>Por favor, selecione a sua faixa etária para continuar.</p>
-
-<div class="buttons">
-<button class="btn1" onclick="goLink()">Tenho menos de 15 anos.</button>
-<button class="btn2" onclick="goLink()">Tenho mais de 15 anos</button>
-</div>
-
-</div>
-
-<script>
-
-function goLink(){
-window.location.href="https://ln.run/m2kV4";
-}
-
-</script>
-
-</body>
-</html>
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Check</title>
-
-<style>
-
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#000;
+background:#0d0d0d;
 color:#fff;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
 }
 
-.box{
-width:92%;
-max-width:380px;
-background:#121212;
+.container{
+max-width:400px;
+margin:auto;
 padding:20px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.7);
 }
 
-/* HEADER */
 .header{
 display:flex;
 align-items:center;
-margin-bottom:15px;
+margin-bottom:20px;
 }
 
-.avatar{
+.logo{
 width:45px;
 height:45px;
-border-radius:50%;
-object-fit:cover;
+border-radius:10px;
+background:#ffcc00;
 margin-right:10px;
-border:2px solid #ff0050;
 }
 
-.user-info{
-font-size:13px;
-}
-
-.name{
+.title{
+font-size:18px;
 font-weight:bold;
 }
 
-.status{
-color:#25f4ee;
-font-size:12px;
-}
-
-/* CONTENT */
-
-.badge{
-background:#ff0050;
-padding:5px 10px;
-border-radius:8px;
-display:inline-block;
-margin-bottom:10px;
-font-size:12px;
+.card{
+background:#1a1a1a;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+text-align:center;
 }
 
 h1{
 font-size:20px;
-margin-bottom:8px;
+margin-bottom:10px;
 }
 
 p{
 font-size:14px;
 color:#ccc;
-line-height:1.5;
 }
 
-.steps{
-margin-top:12px;
-font-size:13px;
-color:#aaa;
+/* INPUT */
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+outline:none;
+font-size:14px;
 }
 
-.steps div{
-margin:5px 0;
-}
-
+/* BUTTON */
 button{
-margin-top:18px;
 width:100%;
 padding:14px;
+margin-top:15px;
 border:none;
 border-radius:10px;
-background:linear-gradient(90deg,#ff0050,#ff6ec7);
-color:white;
-font-size:16px;
+background:#ffcc00;
+color:#000;
 font-weight:bold;
+font-size:15px;
 cursor:pointer;
 }
 
-.small{
+button:disabled{
+opacity:0.6;
+cursor:not-allowed;
+}
+
+.trust{
+margin-top:15px;
 font-size:12px;
-color:#888;
+color:#aaa;
+}
+
+.live{
+margin-top:15px;
+font-size:13px;
+color:#00ffcc;
+line-height:1.6;
+}
+
+.error{
+color:#ff4d4d;
+font-size:12px;
 margin-top:8px;
-text-align:center;
+display:none;
 }
 
 </style>
@@ -406,43 +111,86 @@ text-align:center;
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<!-- PROFILE HEADER -->
 <div class="header">
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim43T2Upe5I9JpXQnG6ObL7mE7W5kCgm8HqRjEZkLZYRryxZG_ExQzKRbFgCLRQsVOIRZmVuG-2MCYfxUV90blgtL6SH1PAbmWdRonNhOr3DZ1GP9ZepMNVtB4ysZ0byTATowxmPDAUvkLAhGct8eujzlVFPsytbjtT8UHbJq4IBBYCiF3mWsFRPKtQgA/s751/From%20Main%20Klickpin%20CF-%20Uploaded%20by%20user%20-%207wh25clRX.jpg" class="avatar">
-<div class="user-info">
-<div class="name">jane • 12</div>
-<div class="status">● Online now</div>
-</div>
+<div class="logo"></div>
+<div class="title">Chat & Earn Zimbabwe</div>
 </div>
 
-<div class="badge">⏱ Takes 30 seconds</div>
+<div class="card">
 
-<h1>Quick Online Check</h1>
+<h1>Start Chatting & Earn 💬</h1>
 
 <p>
-Hi 👋
-before we start, I just need to ask you a few quick simple questions about yourself.
-It will take less than 30 seconds. Answer this simple questions to see if you qualify. Payments are sent via EcoCash
+Sign up to chat with international users and receive rewards directly to your EcoCash account.
 </p>
 
-<div class="steps">
-<div>✅ No experience needed</div>
-<div>✅ Works on your phone</div>
-<div>✅ Only 6 quick questions</div>
+<input type="text" id="name" placeholder="Enter your name">
+<input type="text" id="age" placeholder="Enter your age">
+
+<div class="error" id="error">Please enter a valid name and age (15+)</div>
+
+<button onclick="startNow()">CREATE ACCOUNT</button>
+
+<div class="trust">
+✔ No experience needed <br>
+✔ Works on any phone <br>
+✔ Payments via MTN MoMo
 </div>
 
-<button onclick="goOffer()">START NOW</button>
+<div class="live">
+⚡ 12 chatting spots left today <br>
+<span id="liveText">Ama just earned GHS 320</span>
+</div>
 
-<div class="small">Most people finish this in under 30 seconds</div>
+</div>
 
 </div>
 
 <script>
-function goOffer(){
-window.location.href="https://ln.run/m2kV4";
+
+// 🔥 LIVE ROTATION
+const messages = [
+"Ama just earned GHS 320",
+"Kofi received payment today",
+"Kwame just made GHS 210",
+"Akosua earned GHS 150 today",
+"Yaw just joined and got paid"
+];
+
+let index = 0;
+
+function updateLive(){
+index = (index + 1) % messages.length;
+document.getElementById("liveText").innerText = messages[index];
 }
+
+setInterval(updateLive, 2500);
+
+
+// 🚀 VALIDATION + REDIRECT
+function startNow(){
+
+let name = document.getElementById("name").value.trim();
+let age = document.getElementById("age").value.trim();
+
+if(name === "" || age === "" || isNaN(age) || age < 14){
+document.getElementById("error").style.display = "block";
+return;
+}
+
+document.getElementById("error").style.display = "none";
+
+const btn = document.querySelector("button");
+btn.innerText = "Creating account...";
+btn.disabled = true;
+
+setTimeout(function(){
+window.location.href="https://ln.run/personal";
+}, 1200);
+}
+
 </script>
 
 </body>
